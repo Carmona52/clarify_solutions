@@ -1,9 +1,14 @@
 import HeroSection from "@/components/sections/hero-section";
+import MarqueeLogos from "@/components/sections/logos-marquee";
+import {Stack} from "@mui/joy";
 
 export default function Home() {
     return (
         <>
-            <HeroSection></HeroSection>
+            <Stack>
+                <HeroSection/>
+                <MarqueeLogos/>
+            </Stack>
         </>
     );
 }
