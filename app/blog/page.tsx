@@ -32,7 +32,7 @@ const blogPosts: BlogPost[] = [
         id: '2',
         title: 'Optimización de Procesos con IA',
         excerpt: 'Guía práctica para implementar inteligencia artificial en flujos de trabajo tradicionales sin fricción.',
-        image: './blog1.jpg',
+        image: '/blog1.jpg',
         category: 'Tecnología',
         date: 'Sep 28, 2023',
         author: { name: 'Carlos Ruiz', avatar: '/team2.jpg' }
