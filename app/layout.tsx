@@ -19,6 +19,15 @@ export const metadata: Metadata = {
     title: "Clarify Solutions",
     description: "Clarify Solutions, empresa de marketing digital",
     keywords: ["Clarify", "Solutions", "Clarify Solutions", "Marketing", "Digital", "Marketing Digital", "Redes", "Sociales", "Redes Sociales"],
+    icons: {
+        icon: './favicon.ico',
+        shortcut: '/favicon.ico',
+        other: {
+            rel: 'icon',
+            url: '/favicon.ico',
+            sizes: '32x32',
+        },
+    },
 };
 
 export default function RootLayout({

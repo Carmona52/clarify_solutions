@@ -118,7 +118,7 @@ const styles = {
         position: "relative",
         width: "100%",
         maxWidth: { xs: "0px", md: "500px" },
-        height: { xs: "0px", md: "500px" },
+        height: { md: "600px", lg: "700px" },
         borderRadius: "24px",
         overflow: "hidden",
     },
