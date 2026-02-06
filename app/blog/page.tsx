@@ -23,7 +23,7 @@ const blogPosts: BlogPost[] = [
         id: '1',
         title: 'Transformación Digital: Más allá de la tecnología',
         excerpt: 'Descubre cómo la verdadera transformación comienza con la cultura empresarial y no solo con herramientas.',
-        image: '/blog1.jpg',
+        image: './blog1.jpg',
         category: 'Estrategia',
         date: 'Oct 12, 2023',
         author: { name: 'Ana García', avatar: '/team1.png' }
@@ -32,7 +32,7 @@ const blogPosts: BlogPost[] = [
         id: '2',
         title: 'Optimización de Procesos con IA',
         excerpt: 'Guía práctica para implementar inteligencia artificial en flujos de trabajo tradicionales sin fricción.',
-        image: '/blog1.jpg',
+        image: './blog1.jpg',
         category: 'Tecnología',
         date: 'Sep 28, 2023',
         author: { name: 'Carlos Ruiz', avatar: '/team2.jpg' }
@@ -41,7 +41,7 @@ const blogPosts: BlogPost[] = [
         id: '3',
         title: 'El futuro del Marketing B2B',
         excerpt: 'Las tendencias que están redefiniendo cómo las empresas se comunican con sus clientes corporativos.',
-        image: '/blog1.jpg',
+        image: './blog1.jpg',
         category: 'Marketing',
         date: 'Sep 15, 2023',
         author: { name: 'Sofía M.', avatar: '/team3.png' }
@@ -50,7 +50,7 @@ const blogPosts: BlogPost[] = [
         id: '4',
         title: 'Liderazgo en tiempos de incertidumbre',
         excerpt: 'Claves para mantener a tu equipo motivado y enfocado cuando el mercado es volátil.',
-        image: '/blog1.jpg',
+        image: './blog1.jpg',
         category: 'Liderazgo',
         date: 'Ago 30, 2023',
         author: { name: 'Javier T.', avatar: '/team2.jpg' }
@@ -150,7 +150,7 @@ const styles = {
         '&:hover': {
             transform: 'translateY(-8px)',
             boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-            borderColor: '#6236FF', // Borde morado al hover
+            borderColor: '#6236FF',
         },
     },
     imageOverlay: {
@@ -173,7 +173,7 @@ const styles = {
     cardExcerpt: {
         color: 'neutral.400',
         display: '-webkit-box',
-        WebkitLineClamp: 3, // Limita a 3 líneas y pone puntos suspensivos
+        WebkitLineClamp: 3,
         WebkitBoxOrient: 'vertical',
         overflow: 'hidden',
     },
