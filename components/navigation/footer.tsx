@@ -2,7 +2,6 @@
 
 import {
     Box,
-    Container,
     Typography,
     Stack,
     Link,
@@ -37,6 +36,13 @@ export default function Footer() {
         {label: "Proyectos", href: "/proyectos"},
         {label: "Blog", href: "/blog"},
         {label: "Contacto", href: "/contacto"}
+    ];
+
+    const socialMedia = [
+        { label: "Facebook", href: "https://www.facebook.com/share/16v31znWz6/", icon: <Facebook /> },
+        //{ label: "Twitter", href: "https://twitter.com", icon: <Twitter /> },
+        { label: "Instagram", href: "https://www.instagram.com/clarify.solutions?igsh=MTN0cTZuMzM4bnJ3OA==", icon: <Instagram /> },
+        { label: "Linkedin", href: "https://www.linkedin.com/company/clarify-solutions/", icon: <LinkedIn /> },
     ];
 
     return (
@@ -74,15 +80,16 @@ export default function Footer() {
                                     Síguenos en redes sociales
                                 </Typography>
                                 <Stack direction="row" spacing={1.5}>
-                                    {[Facebook, Twitter, Instagram, LinkedIn].map((Icon, i) => (
+                                    {socialMedia.map((social, index) => (
                                         <IconButton
-                                            key={i}
+                                            key={index}
+                                            component="a"
+                                            href={social.href}
                                             variant="outlined"
                                             color="primary"
                                             size="sm"
-                                            sx={{borderRadius: 'md'}}
-                                        >
-                                            <Icon fontSize="small"/>
+                                            sx={{ borderRadius: 'md' }}>
+                                            {social.icon}
                                         </IconButton>
                                     ))}
                                 </Stack>
