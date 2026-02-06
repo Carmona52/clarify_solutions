@@ -1,5 +1,5 @@
 'use client'
-import {Box, Typography, Container} from "@mui/joy";
+import {Box, Typography} from "@mui/joy";
 import Image from "next/image";
 import {useState} from "react";
 
@@ -51,8 +51,8 @@ export default function MarqueeLogos() {
                                 <Image
                                     src={company.logo}
                                     alt={company.name}
-                                    width={60}
-                                    height={60}/>
+                                    width={80}
+                                    height={80}/>
 
 
                             </Box>
@@ -148,7 +148,7 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        px: 2,
+        px: 1   ,
         py: 1,
         borderRadius: '12px',
         transition: 'all 0.3s ease',
@@ -173,8 +173,8 @@ const styles = {
     },
 
     logoWrapper: {
-        width: '80px',
-        height: '80px',
+        width: '110px',
+        height: '110px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
