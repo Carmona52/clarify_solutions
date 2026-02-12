@@ -8,7 +8,7 @@ export default function MarqueeLogos() {
 
     const marketingCompanies = [
         {name: "Google Ads", logo: "/logos/google-ads.svg", color: "#4285F4"},
-        {name: "Meta", logo: "/logos/meta.svg", color: "#1877F2"},
+        {name: "Meta Bussiness", logo: "/logos/meta.svg", color: "#1877F2"},
         {name: "HubSpot", logo: "/logos/hubspot.svg", color: "#FF7A59"},
         {name: "Mailchimp", logo: "/logos/mailchimp.svg", color: "#FFE01B"},
         {name: "Canva", logo: "/logos/canva.svg", color: "#00C4CC"},
@@ -16,7 +16,7 @@ export default function MarqueeLogos() {
         {name: "Capcut", logo: "/logos/capcut.svg", color: "#FF6424"},
         {name: "Envato", logo: "/logos/envato.svg", color: "#9C1C1F"},
         {name: "Notion", logo: "/logos/notion.svg", color: "#000000"},
-        {name: "Slack", logo: "/logos/slack.svg", color: "#4A154B"},
+        {name: "Tik Tok", logo: "/logos/tiktok.svg", color: "#4A154B"},
         {name: "Zoom", logo: "/logos/zoom.svg", color: "#2D8CFF"},
         {name: "Trello", logo: "/logos/trello.svg", color: "#0079BF"},
         {name: "Asana", logo: "/logos/asana.svg", color: "#273347"},
@@ -29,32 +29,32 @@ export default function MarqueeLogos() {
 
     return (
         <Box sx={{p: 5, display: 'flex', flexDirection: 'column', justifyContent: "center", textAlign: 'center'}}>
-            <Typography level="h1" sx={styles.title}>
+            <Typography level="h2" sx={styles.title} className="timeline-view animate-zoom-in animate-range-[entry_0%_cover_30%]">
                 Trabajamos con las mejores herramientas del mercado
             </Typography>
-            <Typography level="body-lg" sx={styles.subtitle}>
+            <Typography level="body-lg" sx={styles.subtitle} className="timeline-view animate-zoom-in animate-range-[entry_0%_cover_30%]">
                 Integramos las plataformas líderes en marketing digital para maximizar tus resultados
             </Typography>
 
-            <Box sx={styles.marqueeContainer}>
-
-                <Box sx={{...styles.marqueeTrack, animation: isPaused ? 'none' : 'marqueeRight 40s linear infinite',}}
-                     onMouseEnter={() => setIsPaused(true)}
-                     onMouseLeave={() => setIsPaused(false)}>
+            <Box sx={styles.marqueeContainer} className="timeline-view animate-zoom-in animate-range-[entry_0%_cover_30%]">
+                <Box
+                    sx={{
+                        ...styles.marqueeTrack,
+                        animation: 'marqueeRight 40s linear infinite',
+                        animationPlayState: isPaused ? 'paused' : 'running',
+                    }}
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     {doubleCompanies.map((company, index) => (
-                        <Box
-                            key={`top-${index}`}
-                            sx={styles.logoItem}
-                            onMouseEnter={() => setIsPaused(true)}
-                            onMouseLeave={() => setIsPaused(false)}>
+                        <Box key={`top-${index}`} sx={styles.logoItem} className="hover:animate-jelly hover:animate-infinite hover:animate-duration-700">
                             <Box sx={styles.logoWrapper}>
                                 <Image
                                     src={company.logo}
                                     alt={company.name}
                                     width={80}
-                                    height={80}/>
-
-
+                                    height={80}
+                                />
                             </Box>
                             <Typography level="body-sm" sx={styles.logoName}>
                                 {company.name}
@@ -63,19 +63,25 @@ export default function MarqueeLogos() {
                     ))}
                 </Box>
 
-
                 <Box
-                    sx={{...styles.marqueeTrack, animation: isPaused ? 'none' : 'marqueeLeft 35s linear infinite',}}
+                    sx={{
+                        ...styles.marqueeTrack,
+                        animation: 'marqueeLeft 35s linear infinite',
+                        animationPlayState: isPaused ? 'paused' : 'running',
+
+                    }}
                     onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}>
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     {[...doubleCompanies].reverse().map((company, index) => (
-                        <Box
-                            key={`bottom-${index}`}
-                            sx={styles.logoItem}
-                            onMouseEnter={() => setIsPaused(true)}
-                            onMouseLeave={() => setIsPaused(false)}>
+                        <Box key={`bottom-${index}`} sx={styles.logoItem} className="hover:animate-jelly hover:animate-infinite hover:animate-duration-700">
                             <Box sx={styles.logoWrapper}>
-                                <Image src={company.logo} alt={company.name} width={60} height={60}/>
+                                <Image
+                                    src={company.logo}
+                                    alt={company.name}
+                                    width={60}
+                                    height={60}
+                                />
                             </Box>
                             <Typography level="body-sm" sx={styles.logoName}>
                                 {company.name}
@@ -119,10 +125,7 @@ const styles = {
         display: 'flex',
         gap: 4,
         width: 'max-content',
-        py: 2,
-        '&:hover': {
-            animationPlayState: 'paused',
-        },
+        py: 1,
 
         '@keyframes marqueeRight': {
             '0%': {
@@ -155,21 +158,6 @@ const styles = {
         minWidth: '140px',
         cursor: 'pointer',
 
-        '&:hover': {
-            transform: 'translateY(-8px)',
-            backgroundColor: 'rgba(0, 0, 0, 0.02)',
-            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-
-            '& .logo-wrapper': {
-                transform: 'scale(1.1)',
-                boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
-            },
-
-            '& .logo-name': {
-                color: 'primary.600',
-                fontWeight: 'bold',
-            },
-        },
     },
 
     logoWrapper: {
@@ -207,7 +195,6 @@ const styles = {
     logoName: {
         color: 'white',
         fontSize: '0.875rem',
-        fontWeight: 500,
         transition: 'all 0.3s ease',
         className: 'logo-name',
     },

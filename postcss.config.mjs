@@ -1,7 +1,15 @@
+
 const config = {
-  plugins: {
-    "@tailwindcss/postcss": {},
-  },
+    theme:{
+        extend: {
+            fontFamily:{
+                'principal': ['var(--font-hurme-font)','sans-serif'],
+            }
+        }
+    },
+    plugins: {
+        "@tailwindcss/postcss": {},
+    },
 };
 
 export default config;
