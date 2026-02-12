@@ -40,7 +40,7 @@ const theme = extendTheme({
         },
     },
 
-    // Personalizar componentes
+
     components: {
         JoyButton: {
             defaultProps: {
@@ -54,7 +54,6 @@ const theme = extendTheme({
                     fontWeight: 600,
                     transition: "all 0.2s ease-in-out",
 
-                    // Botón primario sólido
                     ...(ownerState.variant === "solid" && ownerState.color === "primary" && {
                         background: `white`,
                         color: `${theme.palette.primary[500]}`,
@@ -82,7 +81,6 @@ const theme = extendTheme({
                     }),
 
 
-                    // Botón outline primario
                     ...(ownerState.variant === "outlined" && ownerState.color === "primary" && {
                         border: `2px solid ${theme.vars.palette.primary[50]}`,
                         color: theme.vars.palette.primary[50],
@@ -148,17 +146,16 @@ const theme = extendTheme({
         },
     },
 
-    // Tipografía
     fontFamily: {
-        body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-        display: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        body: "var(--font-hurme), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        display: "var(--font-hurme), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         code: "'Roboto Mono', 'Courier New', monospace",
     },
 
-    // Espaciado
+
     spacing: 8,
 
-    // Bordes
+
     radius: {
         xs: "4px",
         sm: "8px",
@@ -176,8 +173,7 @@ export default function ThemeRegistry({children}: { children: ReactNode }) {
             theme={theme}
             defaultMode="light"
             modeStorageKey="joy-ui-mode"
-            disableTransitionOnChange={false}
-        >
+            disableTransitionOnChange={false}>
             <CssBaseline/>
             {children}
         </CssVarsProvider>

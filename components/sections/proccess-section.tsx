@@ -9,34 +9,33 @@ export default function ProcessSection() {
             number: '01',
             title: 'Contacto y Descubrimiento',
             description: 'Todo comienza con una conversación. Analizamos tu estructura actual, definimos criterios de éxito, tiempos y presupuesto para entender exactamente cómo podemos aportar valor.',
-            icon: <ExploreIcon sx={{ fontSize: 32 }} />,
+            icon: <ExploreIcon sx={{ fontSize: 32, color:'#7044ff' }} />,
         },
         {
             number: '02',
             title: 'Estrategia y Equipo',
             description: 'En cuestión de días, finalizamos las especificaciones de tu proyecto. Diseñamos el modelo de trabajo ideal y seleccionamos al talento que se integrará a tu visión.',
-            icon: <PeopleIcon sx={{ fontSize: 32 }} />,
+            icon: <PeopleIcon sx={{ fontSize: 32, color:'#7044ff'}} />,
         },
         {
             number: '03',
             title: 'Ejecución y Resultados',
             description: 'Una vez definidos los hitos, nos ponemos manos a la obra. Monitoreamos el progreso, reportamos actualizaciones y nos adaptamos continuamente para asegurar el ROI.',
-            icon: <TrendingUpIcon sx={{ fontSize: 32 }} />,
+            icon: <TrendingUpIcon sx={{ fontSize: 32, color: 'green' }} />,
         },
     ];
 
     return (
-        <Sheet sx={styles.container}>
+        <Sheet sx={styles.container} className="timeline-view animate-zoom-in animate-range-[entry_5%_cover_50%]">
             <Box sx={{ maxWidth: '1200px', mx: 'auto' }}>
 
                 <Grid container spacing={6}>
-
                     <Grid xs={12} md={6}>
                         <Box sx={styles.header}>
                             <Typography level="h2" sx={styles.subtitleLabel}>
                                 CÓMO TRABAJAMOS
                             </Typography>
-                            <Typography level="h1" sx={styles.title}>
+                            <Typography level="h2" sx={styles.title}>
                                 Un proceso simple.<br /> Resultados impresionantes.
                             </Typography>
                         </Box>
@@ -100,7 +99,12 @@ export default function ProcessSection() {
                                     src="/descarga1.png"
                                     alt="Proceso de trabajo Clarify"
                                     fill
-                                    style={{ objectFit: 'cover' }}
+                                    sizes="(max-width: 1200px) 50vw, 600px"
+                                    priority
+                                    style={{
+                                        objectFit: 'cover',
+                                        objectPosition: 'center 1%'
+                                    }}
                                 />
                                 <Box sx={styles.imageOverlay} />
                             </Box>
@@ -115,7 +119,7 @@ export default function ProcessSection() {
 
 const styles = {
     container: {
-        py: { xs: 8, md: 12 },
+        py:2,
         px: { xs: 3, md: 6 },
         backgroundColor: 'transparent',
     },
@@ -129,7 +133,7 @@ const styles = {
         fontSize: '0.875rem',
         fontWeight: '700',
         letterSpacing: '2px',
-        color: '#6236FF',
+        color: 'white',
         mb: 2,
         textTransform: 'uppercase',
     },
@@ -168,8 +172,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#6236FF', // Morado
-        // color: '#00D4FF', // O usa este para Cyan
+        color: '#6236FF',
         zIndex: 2,
         boxShadow: '0 0 25px rgba(98, 54, 255, 0.4)',
     },
@@ -239,6 +242,7 @@ const styles = {
         top: '100px',
         height: 'calc(100vh - 200px)',
         minHeight: '500px',
+        width: '100%',
         borderRadius: '30px',
         overflow: 'hidden',
     },
@@ -247,6 +251,7 @@ const styles = {
         position: 'relative',
         width: '100%',
         height: '100%',
+        minHeight: 'inherit',
     },
 
     imageOverlay: {
