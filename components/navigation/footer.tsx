@@ -68,9 +68,17 @@ export default function Footer() {
                                     alt="Logo Clarify Solutions"
                                     width={180}
                                     height={60}
-                                    style={{objectFit: 'contain'}}
+                                    sizes="(max-width: 768px) 140px, 180px"
+                                    quality={90}
                                     priority={false}
+                                    style={{
+                                        width: "auto",
+                                        height: "auto",
+                                        maxWidth: "100%",
+                                        objectFit: "contain",
+                                    }}
                                 />
+
                             </Box>
                             <Typography sx={{fontSize: 16, fontWeight: 600}}>
                                 Estrategia que impulsa. Claridad que transforma.
@@ -79,20 +87,32 @@ export default function Footer() {
                                 <Typography level="body-sm" sx={{fontWeight: 600, mb: 2}}>
                                     Síguenos en redes sociales
                                 </Typography>
-                                <Stack direction="row" spacing={1.5}>
+                                <Stack direction="row" spacing={2}>
                                     {socialMedia.map((social, index) => (
                                         <IconButton
                                             key={index}
                                             component="a"
                                             href={social.href}
-                                            variant="outlined"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            variant="soft"
                                             color="primary"
-                                            size="sm"
-                                            sx={{ borderRadius: 'md' }}>
+                                            size="lg"
+                                            sx={{
+                                                borderRadius: "xl",
+                                                width: 48,
+                                                height: 48,
+                                                "& svg": {
+                                                    fontSize: 24,
+                                                },
+                                            }}
+                                            className="hover:animate-jelly"
+                                        >
                                             {social.icon}
                                         </IconButton>
                                     ))}
                                 </Stack>
+
                             </Box>
                         </Stack>
                     </Grid>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Button, Grid } from "@mui/joy";
+import {Box, Typography, Button, Grid} from "@mui/joy";
 import Image from "next/image";
 
 interface TeamMember {
@@ -8,12 +8,12 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-    { src: "/team1.png", alt: "Profesional 1" },
-    { src: "/team2.jpg", alt: "Profesional 2" },
-    { src: "/team1.png", alt: "Profesional 3" },
-    { src: "/team2.jpg", alt: "Profesional 4" },
-    { src: "/team1.png", alt: "Profesional 5" },
-    { src: "/team2.jpg", alt: "Profesional 6" },
+    {src: "/team1.png", alt: "Profesional 1"},
+    {src: "/team2.jpg", alt: "Profesional 2"},
+    {src: "/team1.png", alt: "Profesional 3"},
+    {src: "/team2.jpg", alt: "Profesional 4"},
+    {src: "/team1.png", alt: "Profesional 5"},
+    {src: "/team2.jpg", alt: "Profesional 6"},
 ];
 
 export default function TeamSection() {
@@ -21,19 +21,19 @@ export default function TeamSection() {
         <Box
             component="section"
             sx={{
-                py: { xs: 6, md: 6 },
-                px: { xs: 3, md: 8, lg: 12 },
+                py: {xs: 6, md: 6},
+                px: {xs: 3, md: 8, lg: 12},
                 position: "relative",
             }}
         >
-            <Grid container spacing={8} alignItems="center">
+            <Grid container spacing={{xs:4, md:5}} alignItems="center">
 
                 <Grid xs={12} md={6}>
                     <Box
                         sx={{
                             display: "grid",
                             gridTemplateColumns: "repeat(3, 1fr)",
-                            gap: { xs: 2, md: 3 },
+                            gap: {xs: 2, md: 3},
                         }}
                     >
                         {teamMembers.map((member, index) => (
@@ -53,7 +53,7 @@ export default function TeamSection() {
                 </Grid>
 
                 <Grid xs={12} md={6}>
-                    <Box sx={{ maxWidth: 560 }}>
+                    <Box sx={{maxWidth: 560}}>
 
                         <Typography
                             level="body-sm"
@@ -111,7 +111,7 @@ const styles = {
 
     title: {
         color: "white",
-        fontSize: { xs: "2.2rem", md: "3.2rem" },
+        fontSize: {xs: "2.2rem", md: "3.2rem"},
         fontWeight: 800,
         lineHeight: 1.1,
         mb: 3,
@@ -119,7 +119,7 @@ const styles = {
 
     description: {
         color: "rgba(255,255,255,0.85)",
-        fontSize: { xs: "1rem", md: "1.15rem" },
+        fontSize: {xs: "1rem", md: "1.15rem"},
         lineHeight: 1.8,
         mb: 4,
         maxWidth: "520px",
