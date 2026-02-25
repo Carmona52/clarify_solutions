@@ -11,7 +11,7 @@ export type BlogPost = {
     image_url: string;
     category: string;
     published: boolean;
-    authors: Author[];
+    authors: Author;
     createdAt?: string;
     slug?: string;
 }

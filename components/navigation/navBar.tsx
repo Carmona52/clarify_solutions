@@ -40,12 +40,12 @@ export default function NavBar() {
                         const isActive = pathName === option.path;
                         return (
                             <Sheet className="hover:animate-squeeze"
-                                key={index}
-                                sx={{
-                                    ...styles.menuOption,
-                                    backgroundColor: isActive ? 'primary.100' : 'transparent',
-                                    color: isActive ? 'primary.700' : 'text.primary',
-                                }}>
+                                   key={index}
+                                   sx={{
+                                       ...styles.menuOption,
+                                       backgroundColor: isActive ? 'primary.100' : 'transparent',
+                                       color: isActive ? 'primary.700' : 'text.primary',
+                                   }}>
                                 <Typography component={Link} href={option.path} sx={styles.linkText}>
                                     {option.label}
                                 </Typography>
@@ -98,18 +98,36 @@ const styles = {
         p: 2,
         px: 5,
         borderRadius: "0px 0px 10px 10px",
-        boxShadow: 'sm',
-        position: 'sticky',
-        top: 0,
-        zIndex: 1,
 
+        background: "white",
+        backdropFilter: "blur(12px)",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+
+        // --- LA CLAVE ---
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1100,
     },
     logo: {
         display: "flex",
         alignItems: "center",
         cursor: "pointer",
+        position: "relative",
     },
-    menu: {display: 'flex', gap: 1},
-    menuOption: {p: 1, px: 2, borderRadius: '8px', transition: '0.2s'},
-    linkText: {textDecoration: 'none', color: 'inherit', fontWeight: 'bold'}
+    menu: { display: 'flex', gap: 1 },
+    menuOption: {
+        p: 1,
+        px: 2,
+        borderRadius: '8px',
+        transition: '0.2s',
+        bgcolor: 'transparent'
+    },
+    linkText: {
+        textDecoration: 'none',
+        color: 'inherit',
+        fontWeight: 'bold'
+    }
 }

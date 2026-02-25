@@ -9,6 +9,8 @@ import {BlogPost} from "@/lib/posts/blog-type";
 
 export default function BlogCard({post}: { post: BlogPost }) {
     const router = useRouter();
+    console.log("Datos del post en la card:", post); // Revisa la consola del navegador
+
     return (
         <Card variant="soft" sx={styles.card} onClick={() => router.push(`blog/${post.slug}`)}>
             <CardOverflow>
@@ -53,10 +55,9 @@ export default function BlogCard({post}: { post: BlogPost }) {
 
                 <Box sx={{display: "flex", gap: 1.5, alignItems: "center"}}>
 
-                    <Avatar src={post.authors[0]?.avatar_url} size="sm" variant="outlined"/>
-
+                    <Avatar src={post.authors?.avatar_url} size="sm" variant="outlined"/>
                     <Typography level="body-xs" sx={{color: "white"}}>
-                        {post.authors[0]?.name} {post.authors[0]?.last_name}
+                        {post.authors?.name} {post.authors?.last_name}
                     </Typography>
 
                 </Box>

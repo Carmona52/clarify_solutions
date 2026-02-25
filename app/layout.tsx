@@ -67,7 +67,7 @@ export default function RootLayout({
         >
         <ThemeRegistry>
             <NavBar/>
-            <main style={{flex: 1, display: "flex", flexDirection: "column"}}>
+            <main style={{flex: 1, display: "flex", flexDirection: "column",paddingTop: '40px'}}>
                 {children}
             </main>
             <FloatingChatbot/>

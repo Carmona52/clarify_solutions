@@ -13,7 +13,7 @@ export async function getPosts(): Promise<BlogPost[]> {
       category,
       created_at,
       slug,
-      authors(
+      authors (
         name,
         last_name,
         avatar_url
@@ -23,16 +23,18 @@ export async function getPosts(): Promise<BlogPost[]> {
         .limit(9)
         .order("created_at", {ascending: false});
 
-    if (error) {
+    if (error || !data) {
         console.error(error);
         return [];
     }
 
-    return data;
-
+    return data.map((post: any) => ({
+        ...post,
+        authors: Array.isArray(post.authors) ? post.authors[0] : post.authors
+    })) as BlogPost[];
 }
 
-export async function getPostById(id: string): Promise<BlogPost> {
+export async function getPostBySlug(slug: string): Promise<BlogPost> {
     const {data, error} = await supabaseConfig
         .from("posts")
         .select(`
@@ -43,20 +45,6 @@ export async function getPostById(id: string): Promise<BlogPost> {
             avatar_url
           )
         `)
-        .eq("id", id)
-        .single();
-
-    if (error) {
-        throw error;
-    }
-
-    return data;
-}
-
-export async function getPostBySlug(slug: string): Promise<BlogPost> {
-    const {data, error} = await supabaseConfig
-        .from("posts")
-        .select("*")
         .eq("slug", slug)
         .single()
 
