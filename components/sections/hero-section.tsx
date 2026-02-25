@@ -18,20 +18,17 @@ export default function HeroSection() {
                 className="animate-fade-in fill-mode-forwards"
                 sx={{
                     position: "relative",
-                    zIndex: 2,
+                    zIndex: 0,
                     maxWidth: {xs: "100%", md: "75%", lg: "70%"},
                 }}>
                 <Typography level="h1" sx={styles.title}>
-                    Estrategia que impulsa.ㅤ
-                    <br/>
-                    <span style={{opacity: 0.9}}>
-            Claridad que transforma.
-          </span>
+                    Estrategia que impulsa.ㅤ<br/>
+                    <span style={{opacity: 0.9}}>Claridad que transforma.</span>
                 </Typography>
 
                 <Typography level="body-lg" sx={styles.subtitle}>
                     En <b>Clarify Solutions</b> te ayudamos a crecer con estructura,
-                    datos claros y resultados medibles.ㅤ
+                    datos claros y resultados medibles.ㅤ <br/>
                     <span style={{fontWeight: 600}}>
              Sin tecnicismos innecesarios ni rodeos.
           </span>
@@ -72,7 +69,7 @@ export default function HeroSection() {
                 width: {md: "480px", lg: "580px", xl: "680px"},
                 opacity: 0.95,
                 pointerEvents: "none",
-                zIndex: 1,
+                zIndex: 0,
             }}
                  className="animate-fade-in-up fill-mode-forwards">
                 <Image
@@ -94,11 +91,12 @@ export default function HeroSection() {
 
 const styles = {
     title: {
-        fontSize: {xs: "2.6rem", md: "4.2rem", lg: "6rem"},
+        fontSize: {xs: "2.4rem", sm: "3.2rem", md: "4.2rem", lg: "5.5rem"},
         fontWeight: 900,
-        lineHeight: 1.05,
+        lineHeight: {xs: 1.1, sm: 1.08, md: 1.05, lg: 1},
+        letterSpacing: {xs: "-0.5px", md: "-1px"},
         color: "white",
-        mb: 4,
+        mb: {xs: 3, md: 4},
     },
 
     subtitle: {

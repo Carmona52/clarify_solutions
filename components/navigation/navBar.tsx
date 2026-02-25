@@ -11,6 +11,7 @@ export default function NavBar() {
     const pathName = usePathname();
     const [open, setOpen] = useState(false);
 
+
     const options = [
         {label: "Inicio", path: "/"},
         {label: "Blog", path: "/blog"},
@@ -21,7 +22,16 @@ export default function NavBar() {
     return (
         <Sheet sx={styles.navBar} component="nav">
             <Box sx={styles.logo}>
-                <Image src="/Clarify_H1.png" fill alt="Logo" style={{objectFit: 'contain'}}/>
+                <Link href="/">
+                    <Image
+                        src="/Clarify_H1.png"
+                        alt="Logo Clarify"
+                        width={120}
+                        height={50}
+                        priority/>
+                </Link>
+
+
             </Box>
 
             <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 3, alignItems: "center"}}>
@@ -29,7 +39,7 @@ export default function NavBar() {
                     {options.map((option, index) => {
                         const isActive = pathName === option.path;
                         return (
-                            <Sheet
+                            <Sheet className="hover:animate-squeeze"
                                 key={index}
                                 sx={{
                                     ...styles.menuOption,
@@ -85,7 +95,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: "space-between",
-        p:2,
+        p: 2,
         px: 5,
         borderRadius: "0px 0px 10px 10px",
         boxShadow: 'sm',
@@ -94,7 +104,11 @@ const styles = {
         zIndex: 1,
 
     },
-    logo: {height: 50, width: 120, position: 'relative'},
+    logo: {
+        display: "flex",
+        alignItems: "center",
+        cursor: "pointer",
+    },
     menu: {display: 'flex', gap: 1},
     menuOption: {p: 1, px: 2, borderRadius: '8px', transition: '0.2s'},
     linkText: {textDecoration: 'none', color: 'inherit', fontWeight: 'bold'}

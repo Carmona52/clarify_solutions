@@ -86,7 +86,6 @@ export default function ReviewSection() {
                 </Typography>
             </Box>
 
-            {/* Reviews Grid */}
             <Grid container spacing={4}>
                 {reviews.map((item, index) => (
                     <Grid xs={12} sm={6} md={4} key={index}>

@@ -49,7 +49,7 @@ export default function Footer() {
         <Box
             component="footer"
             sx={{
-                width: '100%vh',
+                width: '100%',
                 bgcolor: 'white',
                 color: 'text.primary',
                 py: {xs: 4, md: 6},
@@ -69,16 +69,11 @@ export default function Footer() {
                                     width={180}
                                     height={60}
                                     sizes="(max-width: 768px) 140px, 180px"
-                                    quality={90}
-                                    priority={false}
                                     style={{
-                                        width: "auto",
-                                        height: "auto",
                                         maxWidth: "100%",
-                                        objectFit: "contain",
+                                        height: "auto",
                                     }}
                                 />
-
                             </Box>
                             <Typography sx={{fontSize: 16, fontWeight: 600}}>
                                 Estrategia que impulsa. Claridad que transforma.

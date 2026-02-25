@@ -4,6 +4,7 @@ import ThemeRegistry from "@/theme/theme";
 import "./globals.css";
 import NavBar from "@/components/navigation/navBar";
 import Footer from "@/components/navigation/footer";
+import FloatingChatbot from "@/components/forms/chat-bot";
 
 const hurmeFont = localFont({
     src: [
@@ -69,6 +70,7 @@ export default function RootLayout({
             <main style={{flex: 1, display: "flex", flexDirection: "column"}}>
                 {children}
             </main>
+            <FloatingChatbot/>
             <Footer/>
         </ThemeRegistry>
         </body>

@@ -1,4 +1,5 @@
 import {Box, Typography, Grid, Button, Stack, Card} from "@mui/joy";
+import ContactForm from "@/components/forms/contact-form";
 
 export default function ServiciosPage() {
     const servicios = [
@@ -73,27 +74,32 @@ export default function ServiciosPage() {
             <Grid container spacing={4} sx={{maxWidth: 1200, mx: "auto"}}>
                 {servicios.map((servicio, i) => (
                     <Grid xs={12} md={6} key={i}>
-                        <Card variant="soft"
-                              sx={{
-                                  p: 5,
-                                  height: "100%",
-                                  borderRadius: "xl",
-                                  backdropFilter: "blur(6px)",
-                                  backgroundColor: "rgba(255,255,255,0.06)",
-                                  border: "1px solid rgba(255,255,255,0.1)",
-                                  transition: "all 0.3s ease",
-                                  "&:hover": {
-                                      transform: "translateY(-6px)",
-                                      boxShadow: "lg",
-                                  },
-                              }}>
+                        <Card
+                            variant="soft"
+                            sx={{
+                                p: 5,
+                                height: "100%",
+                                borderRadius: "xl",
+                                backgroundColor: "rgba(255,255,255,0.05)",
+                                border: "1px solid rgba(255,255,255,0.08)",
+                                transition: "all 0.25s ease",
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: 2,
+                                "&:hover": {
+                                    transform: "translateY(-4px)",
+                                    borderColor: "primary.400",
+                                },
+                            }}
+                        >
                             <Typography
-                                level="h4"
                                 sx={{
-                                    fontWeight: 800,
-                                    color: "primary.300",
-                                    mb: 2,
-                                }}>
+                                    fontSize: "0.9rem",
+                                    fontWeight: 700,
+                                    letterSpacing: 2,
+                                    color: "primary.400",
+                                }}
+                            >
                                 {servicio.numero}
                             </Typography>
 
@@ -101,9 +107,9 @@ export default function ServiciosPage() {
                                 level="title-lg"
                                 sx={{
                                     fontWeight: 700,
-                                    mb: 2,
                                     color: "common.white",
-                                }}>
+                                }}
+                            >
                                 {servicio.titulo}
                             </Typography>
 
@@ -112,67 +118,76 @@ export default function ServiciosPage() {
                                 sx={{
                                     color: "neutral.300",
                                     lineHeight: 1.7,
-                                }}>
+                                    flexGrow: 1,
+                                }}
+                            >
                                 {servicio.descripcion}
                             </Typography>
                         </Card>
+
                     </Grid>
                 ))}
             </Grid>
 
-            <Box sx={{mt: 16, textAlign: "center"}}>
-                <Typography
-                    level="h2"
-                    sx={{
-                        fontWeight: 800,
-                        mb: 3,
-                        color: "common.white",
-                    }}>
-                    ¿Hablamos claro sobre tu negocio?
-                </Typography>
+            <Box
+                sx={{
+                    mt: 20,
+                    py: {xs: 10, md: 14},
+                    px: {xs: 3, md: 6},
+                }}>
+                <Grid
+                    container
+                    spacing={8}
+                    alignItems="center"
+                    sx={{maxWidth: 1200, mx: "auto"}}
+                >
 
-                <Typography
-                    level="body-lg"
-                    sx={{
-                        maxWidth: 600,
-                        mx: "auto",
-                        mb: 6,
-                        color: "neutral.300",
-                    }}>
-                    Si buscas un aliado estratégico que hable tu idioma y transforme tu
-                    inversión en crecimiento real, estamos listos.
-                </Typography>
+                    <Grid xs={12} md={5}>
+                        <Typography
+                            level="h2"
+                            sx={{
+                                fontWeight: 800,
+                                mb: 3,
+                                color: "common.white",
+                                lineHeight: 1.1,
+                            }}
+                        >
+                            ¿Hablamos claro sobre tu negocio?
+                        </Typography>
 
-                <Stack
-                    direction={{xs: "column", sm: "row"}}
-                    spacing={3}
-                    justifyContent="center">
+                        <Typography
+                            level="body-lg"
+                            sx={{
+                                mb: 5,
+                                color: "neutral.300",
+                                lineHeight: 1.7,
+                            }}
+                        >
+                            Si buscas un aliado estratégico que transforme tu inversión
+                            en crecimiento real, comencemos con una conversación honesta.
+                        </Typography>
 
-                    <Button size="lg"
-                            variant="solid"
-                            color="primary"
+                        <Button
+                            size="lg"
+                            variant="outlined"
                             sx={{
                                 px: 5,
                                 borderRadius: "xl",
                                 fontWeight: 700,
-                            }}>
-                        Agendar Diagnóstico Gratis
-                    </Button>
+                                borderColor: "rgba(255,255,255,0.3)",
+                                color: "common.white",
+                            }}
+                        >
+                            Ver Casos de Éxito
+                        </Button>
+                    </Grid>
+                    <Grid xs={12} md={7}>
+                        <ContactForm/>
+                    </Grid>
 
-                    <Button
-                        size="lg"
-                        variant="outlined"
-                        sx={{
-                            px: 5,
-                            borderRadius: "xl",
-                            fontWeight: 700,
-                            borderColor: "rgba(255,255,255,0.3)",
-                            color: "common.white",
-                        }}>
-                        Ver Casos de Éxito
-                    </Button>
-                </Stack>
+                </Grid>
             </Box>
+
         </Box>
     );
 }

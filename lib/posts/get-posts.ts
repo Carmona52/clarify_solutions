@@ -46,6 +46,10 @@ export async function getPostById(id: string): Promise<BlogPost> {
         .eq("id", id)
         .single();
 
+    if (error) {
+        throw error;
+    }
+
     return data;
 }
 
@@ -55,6 +59,11 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
         .select("*")
         .eq("slug", slug)
         .single()
+
+    if (error) {
+        throw error;
+    }
+
 
     return data
 }

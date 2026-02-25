@@ -1,6 +1,7 @@
 import React from "react";
 import {Box, Typography, Button, Grid} from "@mui/joy";
 import Image from "next/image";
+import Link from "next/link";
 
 interface TeamMember {
     src: string;
@@ -26,7 +27,7 @@ export default function TeamSection() {
                 position: "relative",
             }}
         >
-            <Grid container spacing={{xs:4, md:5}} alignItems="center">
+            <Grid container spacing={{xs: 4, md: 5}} alignItems="center">
 
                 <Grid xs={12} md={6}>
                     <Box
@@ -55,10 +56,7 @@ export default function TeamSection() {
                 <Grid xs={12} md={6}>
                     <Box sx={{maxWidth: 560}}>
 
-                        <Typography
-                            level="body-sm"
-                            sx={styles.eyebrow}
-                        >
+                        <Typography level="body-sm" sx={styles.eyebrow}>
                             Nuestro Equipo
                         </Typography>
 
@@ -73,7 +71,9 @@ export default function TeamSection() {
                         </Typography>
 
                         <Button size="lg" sx={styles.ctaButton}>
-                            Saber Más
+                            <Link href={"/sobre-nosotros"}>
+                                Saber Más
+                            </Link>
                         </Button>
 
 

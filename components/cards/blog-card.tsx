@@ -9,7 +9,6 @@ import {BlogPost} from "@/lib/posts/blog-type";
 
 export default function BlogCard({post}: { post: BlogPost }) {
     const router = useRouter();
-    console.log(post)
     return (
         <Card variant="soft" sx={styles.card} onClick={() => router.push(`blog/${post.slug}`)}>
             <CardOverflow>
@@ -23,7 +22,15 @@ export default function BlogCard({post}: { post: BlogPost }) {
                 </AspectRatio>
             </CardOverflow>
             <Box sx={{pt: 2, display: "flex", gap: 1, alignItems: "center"}}>
-                <Chip size="sm" variant="solid" sx={{bgcolor: "#6236FF", color: "white"}}>
+                <Chip
+                    size="sm"
+                    variant="soft"
+                    sx={{
+                        bgcolor: "rgba(112,68,255,0.25)",
+                        color: "white",
+                        border: "1px solid rgba(112,68,255,0.4)",
+                    }}>
+
                     {post.category}
                 </Chip>
                 <Typography level="body-xs" textColor="neutral.500">
@@ -48,7 +55,7 @@ export default function BlogCard({post}: { post: BlogPost }) {
 
                     <Avatar src={post.authors[0]?.avatar_url} size="sm" variant="outlined"/>
 
-                    <Typography level="body-xs" textColor="neutral.700">
+                    <Typography level="body-xs" sx={{color: "white"}}>
                         {post.authors[0]?.name} {post.authors[0]?.last_name}
                     </Typography>
 
@@ -67,14 +74,19 @@ export default function BlogCard({post}: { post: BlogPost }) {
 const styles = {
     card: {
         height: "100%",
-        backgroundColor: "white",
-        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        background: "linear-gradient(180deg, rgba(112,68,255,0.12), rgba(6,23,149,0.12))",
+        backdropFilter: "blur(12px)",
+        border: "1px solid rgba(255,255,255,0.50)",
+        borderRadius: "20px",
+        transition: "all 0.3s ease",
         "&:hover": {
-            transform: "translateY(-8px)",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.25)",
+            transform: "translateY(-6px)",
+            borderColor: "rgba(112,68,255,0.4)",
+            boxShadow: "0 20px 40px rgba(255,255,255,0.35)",
         },
         cursor: "pointer",
     },
+
 
     imageOverlay: {
         position: "absolute",
@@ -84,16 +96,17 @@ const styles = {
     },
 
     cardTitle: {
-        color: "black",
+        color: "white",
         fontSize: "1.25rem",
-        fontWeight: "bold",
+        fontWeight: 700,
         mt: 1,
         mb: 1,
         lineHeight: 1.3,
     },
 
+
     cardExcerpt: {
-        color: "neutral.500",
+        color: "neutral.300",
         display: "-webkit-box",
         WebkitLineClamp: 3,
         WebkitBoxOrient: "vertical",
@@ -102,7 +115,7 @@ const styles = {
 
     readMoreButton: {
         fontWeight: 600,
-        color: "#6236FF",
+        color: "white",
         "&:hover": {
             bgcolor: "transparent",
             textDecoration: "underline",

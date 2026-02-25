@@ -6,15 +6,14 @@ import {BlogPost} from "@/lib/posts/blog-type";
 
 export default async function BlogPage() {
     const posts: BlogPost[] = await getPosts()
-    console.log(posts);
-
+    console.log("HOLA",posts.map((posts)=>console.log("HOLA", posts.authors)));
 
     return (
 
         <Box sx={{py: 10, px: {xs: 2, md: 8}}}>
             <Box sx={{mb: 8, textAlign: "center", maxWidth: 800, mx: "auto"}}>
                 <Typography level="h1" sx={styles.pageTitle}>
-                    Ideas que <span style={{color: "#6236FF"}}>Impulsan</span>
+                    Ideas que <span style={{color: "white"}}>Impulsan</span>
                 </Typography>
 
                 <Typography level="body-lg" sx={styles.pageSubtitle}>

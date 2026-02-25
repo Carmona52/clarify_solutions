@@ -26,7 +26,7 @@ export default function BlogPage() {
     if (!post && !loading) return <div>No encontrado</div>
 
     return (
-        <Box sx={{maxWidth: '90%', mx: "auto", py: 8, px: 2}}>
+        <Box sx={{maxWidth: '70%', mx: "auto", py: 8, px: 2}}>
             {loading ? (
                 <>
                     <Skeleton variant="text" sx={{fontSize: "2rem", mb: 2, width: "70%"}}/>
