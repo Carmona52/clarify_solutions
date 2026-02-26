@@ -18,7 +18,6 @@ export default function PostView({post}: { post: Post }) {
     return (
         <Box component="main" sx={{bgcolor: 'transparent', color: '#F1F0FB', pb: 10, position: 'relative'}}>
 
-            {/* Luz de ambiente decorativa */}
             <Box sx={{
                 position: 'absolute',
                 top: 0,
@@ -157,7 +156,6 @@ export default function PostView({post}: { post: Post }) {
             }}>
                 <Box dangerouslySetInnerHTML={{__html: post?.content ?? ""}}/>
 
-                {/* --- SECCIÓN DE AUTOR FINAL --- */}
                 <Box sx={{
                     mt: 12,
                     p: { xs: 4, md: 6 },

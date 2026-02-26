@@ -56,18 +56,19 @@ export default function PostEditor({content, onChange}: Props) {
 
     if (!editor) return null;
 
-    const handleImageUpload = async (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
 
         try {
-            const imageUrl = await uploadImage(file);
+            const result = await uploadImage(file);
+            editor.chain().focus().setImage({src: result.url}).run();
 
-            editor.chain().focus().setImage({src: imageUrl}).run();
         } catch (error) {
             console.error("Error subiendo imagen:", error);
+
+        } finally {
+            if (e.target) e.target.value = "";
         }
     };
 
