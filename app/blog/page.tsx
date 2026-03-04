@@ -3,6 +3,8 @@ import {BlogPost} from "@/lib/posts/blog-type";
 import {Metadata} from "next";
 import BlogView from "./BlogView";
 
+export const revalidate = 600;
+
 export const metadata: Metadata = {
     title: "Blog | Ideas que impulsan | Clarify",
     description: "Explora noticias, estrategias de crecimiento y tendencias tecnológicas para llevar tu negocio al siguiente nivel con Clarify.",
@@ -21,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
+
     const posts: BlogPost[] = await getPosts();
     return <BlogView posts={posts}/>;
 }

@@ -1,15 +1,17 @@
-import { getPostBySlug, getPosts } from "@/lib/posts/get-posts"
-import { notFound } from "next/navigation"
-import { Metadata } from "next"
+import {getPostBySlug, getPosts} from "@/lib/posts/get-posts"
+import {notFound} from "next/navigation"
+import {Metadata} from "next"
 import PostView from "./PostView"
 
+export const revalidate = 600;
+
 export async function generateMetadata(
-    { params }: { params: Promise<{ slug: string }> }
+    {params}: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
-    const { slug } = await params;
+    const {slug} = await params;
     const post = await getPostBySlug(slug)
 
-    if (!post) return { title: "Post no encontrado" }
+    if (!post) return {title: "Post no encontrado"}
 
     return {
         title: post.title,
@@ -31,14 +33,14 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPage(
-    { params }: { params: Promise<{ slug: string }> }
+    {params}: { params: Promise<{ slug: string }> }
 ) {
-    const { slug } = await params;
+    const {slug} = await params;
     const post = await getPostBySlug(slug)
 
     if (!post) {
         notFound()
     }
 
-    return <PostView post={post} />
+    return <PostView post={post}/>
 }
