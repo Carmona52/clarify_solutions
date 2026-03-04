@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@lottiefiles/dotlottie-react": "^0.18.3",
     "@midudev/tailwind-animations": "^0.2.0",
     "@mui/icons-material": "^7.3.7",
     "@mui/joy": "^5.0.0-beta.52",
@@ -30,6 +31,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-easy-crop": "^5.5.6",
+    "resend": "^6.9.3",
     "tailwind-animations": "^1.0.1",
     "topojson-client": "^3.1.0"
   },

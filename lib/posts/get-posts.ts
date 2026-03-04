@@ -13,7 +13,7 @@ export async function getPosts(): Promise<BlogPost[]> {
       category,
       created_at,
       slug,
-      authors (
+      profiles (
         name,
         last_name,
         avatar_url
@@ -32,6 +32,8 @@ export async function getPosts(): Promise<BlogPost[]> {
         ...post,
         authors: Array.isArray(post.authors) ? post.authors[0] : post.authors
     })) as BlogPost[];
+
+
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost> {
@@ -39,7 +41,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
         .from("posts")
         .select(`
           *,
-          authors(
+          profiles(
             name,
             last_name,
             avatar_url

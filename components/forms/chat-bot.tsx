@@ -114,7 +114,7 @@ export default function FloatingChatbot() {
                             Asistente Clarify
                         </Typography>
                         <IconButton size="sm" onClick={() => setOpen(false)} sx={{color: "white"}}>
-                            <CloseIcon/>
+                            <CloseIcon sx={{color: "white"}}/>
                         </IconButton>
                     </Box>
 
@@ -128,8 +128,7 @@ export default function FloatingChatbot() {
                             flexDirection: "column",
                             gap: 1.5,
                             bgcolor: "#f9f9f9"
-                        }}
-                    >
+                        }}>
                         {messages.map((msg, index) => (
                             <Box
                                 key={index}

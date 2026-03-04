@@ -14,19 +14,14 @@ import {
 } from "@mui/joy";
 
 interface ContactFormProps {
-    onSubmit?: (data: {
-        name: string;
-        email: string;
-        company: string;
-        message: string;
-    }) => Promise<void> | void;
+    onSuccess?: () => void;
 }
 
-export default function ContactForm({ onSubmit }: ContactFormProps) {
+export default function ContactForm({ onSuccess }: ContactFormProps) {
     const [form, setForm] = useState({
         name: "",
         email: "",
-        company: "",
+        empresa: "",
         message: "",
     });
 
@@ -45,21 +40,20 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         setSuccess(false);
 
         try {
-            if (onSubmit) {
-                await onSubmit(form);
-            } else {
-                console.log("Form Data:", form);
-            }
+            // const response = await fetch('/api/contact', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(form),
+            // });
+            //
+            // if (!response.ok) throw new Error("Error en el servidor");
 
             setSuccess(true);
-            setForm({
-                name: "",
-                email: "",
-                company: "",
-                message: "",
-            });
+            setForm({ name: "", email: "", empresa: "", message: "" });
+            if (onSuccess) onSuccess();
         } catch (error) {
-            console.error(error);
+            console.error("Error enviando formulario:", error);
+            alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
         } finally {
             setLoading(false);
         }
@@ -80,10 +74,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
             }}
         >
             <Stack spacing={3}>
-                <Typography
-                    level="h2"
-                    sx={{ fontWeight: 800, color: "white" }}
-                >
+                <Typography level="h2" sx={{ fontWeight: 800, color: "white" }}>
                     Hablemos de tu crecimiento
                 </Typography>
 
@@ -92,9 +83,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                 </Typography>
 
                 <FormControl required>
-                    <FormLabel sx={{ color: "neutral.300" }}>
-                        Nombre
-                    </FormLabel>
+                    <FormLabel sx={{ color: "neutral.300" }}>Nombre</FormLabel>
                     <Input
                         name="name"
                         value={form.name}
@@ -105,9 +94,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                 </FormControl>
 
                 <FormControl required>
-                    <FormLabel sx={{ color: "neutral.300" }}>
-                        Correo electrónico
-                    </FormLabel>
+                    <FormLabel sx={{ color: "neutral.300" }}>Correo electrónico</FormLabel>
                     <Input
                         name="email"
                         type="email"
@@ -119,12 +106,10 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                 </FormControl>
 
                 <FormControl>
-                    <FormLabel sx={{ color: "neutral.300" }}>
-                        Empresa
-                    </FormLabel>
+                    <FormLabel sx={{ color: "neutral.300" }}>Empresa</FormLabel>
                     <Input
-                        name="company"
-                        value={form.company}
+                        name="empresa"
+                        value={form.empresa}
                         onChange={handleChange}
                         placeholder="Nombre de tu empresa"
                         variant="soft"
@@ -132,15 +117,13 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                 </FormControl>
 
                 <FormControl required>
-                    <FormLabel sx={{ color: "neutral.300" }}>
-                        Mensaje
-                    </FormLabel>
+                    <FormLabel sx={{ color: "neutral.300" }}>Mensaje</FormLabel>
                     <Textarea
                         name="message"
                         minRows={4}
                         value={form.message}
                         onChange={handleChange}
-                        placeholder="Describe tu situación actual y qué deseas lograr..."
+                        placeholder="Describe tu situación actual..."
                         variant="soft"
                     />
                 </FormControl>
@@ -152,13 +135,14 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                     sx={{
                         mt: 2,
                         fontWeight: 700,
-                    }}
-                >
+                        bgcolor: 'primary.500',
+                        '&:hover': { bgcolor: 'primary.400' }
+                    }}>
                     Enviar mensaje
                 </Button>
 
                 {success && (
-                    <Alert color="success" variant="soft">
+                    <Alert color="success" variant="soft" sx={{ borderRadius: 'lg' }}>
                         Hemos recibido tu mensaje. Te contactaremos pronto.
                     </Alert>
                 )}

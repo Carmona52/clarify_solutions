@@ -1,21 +1,29 @@
-"use client";
-
+'use client'
 import {
     Box,
     Typography,
     Grid,
     Card,
     Stack,
-    Avatar,
-    Divider,
     Button,
     Container,
+    AspectRatio,
 } from "@mui/joy";
+import Image from "next/image";
 import GlobalMapSection from "@/components/navigation/map";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import InsightsIcon from '@mui/icons-material/Insights';
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Link from "next/link";
+
+const glassStyle = {
+    background: "rgba(255, 255, 255, 0.03)",
+    backdropFilter: "blur(12px)",
+    border: "1px solid rgba(255, 255, 255, 0.08)",
+    borderRadius: "30px",
+};
 
 export default function AboutPage() {
     const team = [
@@ -26,187 +34,255 @@ export default function AboutPage() {
     ];
 
     const missionItems = [
-        { title: "Claridad Estratégica", desc: "Convertimos datos en decisiones claras que impulsan crecimiento real.", icon: <InsightsIcon sx={{ color: '#B19DFF' }} /> },
-        { title: "Precisión", desc: "Cada acción tiene una métrica, cada inversión un propósito.", icon: <CenterFocusStrongIcon sx={{ color: '#B19DFF' }} /> },
-        { title: "Experiencia", desc: "Combinamos estrategia, creatividad y performance.", icon: <RocketLaunchIcon sx={{ color: '#B19DFF' }} /> },
-        { title: "Tecnología", desc: "La mejor combinación entre sistemas inteligentes y talento humano.", icon: <PrecisionManufacturingIcon sx={{ color: '#B19DFF' }} /> },
+        {
+            title: "Claridad Estratégica",
+            desc: "Convertimos datos crudos en decisiones ejecutables que impulsan crecimiento real.",
+            icon: <InsightsIcon sx={{ fontSize: '2rem', color: 'primary.400' }} />
+        },
+        {
+            title: "Precisión Quirúrgica",
+            desc: "Cada acción tiene una métrica, cada inversión tiene un propósito claro y medible.",
+            icon: <CenterFocusStrongIcon sx={{ fontSize: '2rem', color: 'primary.400' }} />
+        },
+        {
+            title: "Experiencia Integrada",
+            desc: "Combinamos visión de negocio, creatividad funcional y marketing de performance.",
+            icon: <RocketLaunchIcon sx={{ fontSize: '2rem', color: 'primary.400' }} />
+        },
+        {
+            title: "Tecnología Humana",
+            desc: "La sinergia perfecta entre sistemas inteligentes automatizados y talento humano.",
+            icon: <PrecisionManufacturingIcon sx={{ fontSize: '2rem', color: 'primary.400' }} />
+        },
     ];
 
     return (
-        <Box component="main" sx={{ pb: 16 }}>
-            {/* --- HERO SECTION --- */}
-            <Box sx={{
-                pt: { xs: 15, md: 22 },
-                pb: 12,
-                textAlign: "center",
-                background: 'radial-gradient(circle at 50% 0%, rgba(112,68,255,0.15) 0%, transparent 50%)'
+        <Container
+            component="main"
+            maxWidth={false}
+            sx={{
+                py: { xs: 8, md: 12 },
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                px: 5
             }}>
-                <Container maxWidth="md">
-                    <Typography level="body-sm" sx={{ color: '#B19DFF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', mb: 2 }}>
-                        Nuestra Esencia
-                    </Typography>
-                    <Typography level="h1" sx={{
-                        fontWeight: 900,
-                        fontSize: { xs: "3rem", md: "5rem" },
-                        color: 'white',
-                        lineHeight: 1,
-                        mb: 2
-                    }}>
-                        Estamos aquí para <br />
-                        <span style={{
-                            background: "linear-gradient(90deg, #B19DFF, #F1F0FB)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent"
-                        }}>impulsar tu éxito</span>
-                    </Typography>
-                </Container>
-            </Box>
 
-            {/* --- INTRO CARD (Efecto Glass avanzado) --- */}
-            <Container maxWidth="md" sx={{ mb: 20 }}>
-                <Card variant="soft" sx={{
-                    p: { xs: 4, md: 6 },
-                    borderRadius: "40px",
-                    background: "rgba(255,255,255,0.03)",
-                    backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    textAlign: "center",
-                    boxShadow: '0 40px 100px rgba(0,0,0,0.4)'
-                }}>
-                    <Typography level="body-lg" sx={{
-                        color: "#D6CFF9",
-                        fontSize: { xs: "1.2rem", md: "1.6rem" },
-                        lineHeight: 1.6,
-                        fontWeight: 500
-                    }}>
-                        "En <span style={{ color: 'white', fontWeight: 700 }}>Clarify</span> ayudamos a empresas a transformar incertidumbre en dirección estratégica. No vendemos marketing. <span style={{ color: '#B19DFF' }}>Construimos claridad.</span>"
-                    </Typography>
-                </Card>
-            </Container>
-
-            <Container maxWidth="lg" sx={{ mb: 20 }}>
-                <Stack spacing={1} sx={{ textAlign: 'center', mb: 6 }}>
-                    <Typography level="h2" sx={{ fontWeight: 800, color: "white", fontSize: '2.5rem' }}>
-                        Presencia Nacional
-                    </Typography>
-                    <Typography sx={{ color: '#D6CFF9', fontSize: '1.2rem' }}>
-                        Sin fronteras, impulsando negocios desde cualquier lugar.
-                    </Typography>
-                </Stack>
+            <Box component="section" sx={{ mb: 20, mt: { xs: 8, md: 10 }, position: 'relative', width: '100%', maxWidth: '1400px' }}>
                 <Box sx={{
-                    p: 4,
-                    borderRadius: '40px',
-                    background: 'rgba(0,0,0,0.2)',
-                }}>
-                    <GlobalMapSection />
-                </Box>
-            </Container>
+                    position: 'absolute',
+                    top: '50%',
+                    left: '20%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '100%',
+                    height: '50vw',
+                    background: 'radial-gradient(circle, rgba(177, 157, 255, 0.08) 0%, transparent 60%)',
+                    zIndex: -1,
+                    pointerEvents: 'none'
+                }} />
 
-            {/* --- MISSION GRID --- */}
-            <Container maxWidth="lg" sx={{ mb: 20 }}>
-                <Grid container spacing={4}>
-                    <Grid xs={12} md={4}>
-                        <Typography level="h2" sx={{ color: 'white', fontSize: '3rem', fontWeight: 800, lineHeight: 1.1 }}>
-                            Nuestra <br /><span style={{ color: '#B19DFF' }}>Misión</span>
-                        </Typography>
+                <Grid container spacing={8} sx={{ alignItems: 'center' }}>
+                    <Grid xs={12} md={7}>
+                        <Stack spacing={4}>
+                            <Typography
+                                level="body-sm"
+                                sx={{ color: 'primary.400', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em' }}>
+                                Nuestra Esencia
+                            </Typography>
+
+                            <Typography
+                                level="h1"
+                                component="h1"
+                                sx={{
+                                    fontWeight: 900,
+                                    fontSize: { xs: "3.2rem", md: "4.8rem" },
+                                    color: 'white',
+                                    lineHeight: 1.1,
+                                    letterSpacing: '-0.02em'
+                                }}>
+                                Estamos aquí para <Typography component="span" sx={{ color: 'primary.400' }}>impulsar</Typography> tu éxito
+                            </Typography>
+
+                            <Card variant="plain" sx={{
+                                ...glassStyle,
+                                p: { xs: 3, md: 4 },
+                                borderLeft: '4px solid',
+                                borderLeftColor: 'white',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                            }}>
+                                <Typography level="body-lg" sx={{
+                                    color: "white", // Texto en blanco
+                                    fontSize: { xs: "1.1rem", md: "1.3rem" },
+                                    lineHeight: 1.7,
+                                    fontWeight: 400
+                                }}>
+                                    "En <Typography component="span" sx={{ color: 'white', fontWeight: 700 }}>Clarify</Typography> ayudamos a empresas a transformar incertidumbre en dirección estratégica. No vendemos marketing vacío. <Typography component="span" sx={{ color: 'primary.300', fontWeight: 600 }}>Construimos claridad.</Typography>"
+                                </Typography>
+                            </Card>
+                        </Stack>
                     </Grid>
-                    <Grid xs={12} md={8}>
-                        <Grid container spacing={4}>
-                            {missionItems.map((item, i) => (
-                                <Grid xs={12} sm={6} key={i}>
-                                    <Stack spacing={2} sx={{
-                                        p: 3,
-                                        borderRadius: '24px',
-                                        transition: '0.3s',
-                                        '&:hover': { bgcolor: 'rgba(255,255,255,0.03)' }
-                                    }}>
-                                        <Box sx={{
-                                            width: 48, height: 48, borderRadius: '12px',
-                                            bgcolor: 'rgba(177, 157, 255, 0.1)',
-                                            display: 'flex', alignItems: 'center', justifyContent: 'center'
-                                        }}>
-                                            {item.icon}
-                                        </Box>
-                                        <Typography level="title-lg" sx={{ color: "white", fontWeight: 700 }}>
-                                            {item.title}
-                                        </Typography>
-                                        <Typography sx={{ color: "#D6CFF9", lineHeight: 1.6 }}>
-                                            {item.desc}
-                                        </Typography>
-                                    </Stack>
-                                </Grid>
-                            ))}
-                        </Grid>
+
+                    <Grid xs={12} md={5}>
+                        <Box sx={{ position: 'relative', width: '100%', mx: 'auto', maxWidth: '500px' }}>
+                            <AspectRatio
+                                ratio="4/5"
+                                variant="plain"
+                                sx={{
+                                    ...glassStyle,
+                                    bgcolor: 'transparent',
+                                    borderRadius: '30px',
+                                    overflow: 'hidden',
+                                }}>
+                                <Box sx={{ borderRadius: '20px', overflow: 'hidden', width: '100%', height: '100%', position: 'relative' }}>
+                                    <Image
+                                        src="/stadistic.jpg"
+                                        alt="Esencia Clarify"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        priority
+                                    />
+                                </Box>
+                            </AspectRatio>
+                        </Box>
                     </Grid>
                 </Grid>
-            </Container>
-
-            <Box sx={{ bgcolor: 'rgba(255,255,255,0.02)', py: 15, borderBlock: '1px solid rgba(255,255,255,0.05)' }}>
-                <Container maxWidth="lg">
-                    <Typography level="h2" sx={{ fontWeight: 900, color: "white", mb: 8, textAlign: 'center', fontSize: '3rem' }}>
-                        Success Team
-                    </Typography>
-
-                    <Grid container spacing={4}>
-                        {team.map((member, i) => (
-                            <Grid xs={12} sm={6} md={3} key={i}>
-                                <Box sx={{
-                                    textAlign: 'center',
-                                    '&:hover img': { transform: 'scale(1.05)', filter: 'grayscale(0)' }
-                                }}>
-                                    <Box sx={{
-                                        borderRadius: '24px',
-                                        overflow: 'hidden',
-                                        mb: 3,
-                                        height: 350,
-                                        position: 'relative',
-                                        bgcolor: 'rgba(255,255,255,0.05)'
-                                    }}>
-                                        <Avatar
-                                            src={member.img}
-                                            sx={{
-                                                width: '100%',
-                                                height: '100%',
-                                                borderRadius: 0,
-                                                filter: 'grayscale(1)',
-                                                transition: '0.5s ease'
-                                            }}
-                                        />
-                                    </Box>
-                                    <Typography level="title-lg" sx={{ color: "white", fontWeight: 700 }}>
-                                        {member.name}
-                                    </Typography>
-                                    <Typography level="body-sm" sx={{ color: "#B19DFF", fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                                        {member.role}
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Container>
             </Box>
 
-            <Container maxWidth="sm" sx={{ mt: 15, textAlign: "center" }}>
+            <Box component="section" sx={{ mb: 20, width: '100%'}}>
+                <Stack spacing={2} sx={{ textAlign: 'center', mb: 8 }}>
+                    <Typography level="h2" component="h2" sx={{ fontWeight: 800, color: "white", fontSize: '3rem', letterSpacing: '-0.02em' }}>
+                        Presencia <Typography component="span" sx={{ color: 'primary.400' }}>Nacional</Typography>
+                    </Typography>
+
+                    <Typography sx={{
+                        color: 'white',
+                        fontSize: '1.2rem',
+
+                        textAlign: 'center',
+                        mx: 'auto'
+                    }}>
+                        Sin fronteras. Operamos y escalamos negocios desde cualquier lugar del país mediante estrategias digitales.
+                    </Typography>
+                </Stack>
+
+                <Box sx={{ ...glassStyle, p: { xs: 2, md: 4 }, overflow: 'hidden' }}>
+                    <GlobalMapSection />
+                </Box>
+            </Box>
+
+            <Box component="section" sx={{ mb: 20, width: '100%', maxWidth: '1400px' }}>
+                <Stack spacing={2} sx={{ textAlign: 'center', mb: 8 }}>
+                    <Typography level="h2" component="h2" sx={{ color: 'white', fontSize: { xs: '3rem', md: '4.2rem' }, fontWeight: 800 }}>
+                        Nuestra <Typography component="span" sx={{ color: 'primary.400' }}>Misión</Typography>
+                    </Typography>
+                    <Typography sx={{ color: 'white', fontSize: '1.2rem', mx: 'auto', opacity: 0.9 }}>
+                        Creemos que el crecimiento sostenible no es producto de la suerte, sino de una metodología implacable, análisis profundo y ejecución precisa.
+                    </Typography>
+                </Stack>
+
+                <Grid container spacing={3}>
+                    {missionItems.map((item, i) => (
+                        <Grid key={i} xs={12} sm={6} md={3}>
+                            <Card variant="plain" sx={{
+                                ...glassStyle,
+                                p: 4,
+                                height: '100%',
+                                textAlign: 'center',
+                                alignItems: 'center',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}>
+                                <Box sx={{
+                                    width: 70, height: 70, borderRadius: '20px',
+                                    bgcolor: 'rgba(177, 157, 255, 0.1)',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3
+                                }}>
+                                    {item.icon}
+                                </Box>
+                                <Typography level="title-lg" component="h3" sx={{ color: "white", fontWeight: 700, mb: 1.5 }}>
+                                    {item.title}
+                                </Typography>
+                                <Typography level="body-md" sx={{ color: "white", opacity: 0.8 }}>
+                                    {item.desc}
+                                </Typography>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+
+            <Box component="section" sx={{ mb: 20, width: '100%', maxWidth: '1400px' }}>
+                <Box sx={{ textAlign: 'center', mb: 10 }}>
+                    <Typography level="h2" component="h2" sx={{ fontWeight: 800, color: "white", fontSize: '3.5rem', mb: 2 }}>
+                        Success <Typography component="span" sx={{ color: 'primary.400' }}>Team</Typography>
+                    </Typography>
+                    <Typography sx={{ color: 'white', fontSize: '1.2rem', maxWidth: '600px', mx: 'auto' }}>
+                        Conoce a las mentes estratégicas detrás del crecimiento de nuestros aliados.
+                    </Typography>
+                </Box>
+
+                <Grid container spacing={4} justifyContent="center">
+                    {team.map((member, i) => (
+                        <Grid xs={12} sm={6} md={3} key={i}>
+                            <Box sx={{ textAlign: 'center' }}>
+                                <AspectRatio ratio="3/4" sx={{ ...glassStyle, p: 1, mb: 3, overflow: 'hidden' }}>
+                                    <Box sx={{ borderRadius: '20px', overflow: 'hidden', width: '100%', height: '100%', position: 'relative' }}>
+                                        <Image
+                                            src={member.img}
+                                            alt={member.name}
+                                            fill
+                                            style={{ objectFit: 'cover', filter: 'grayscale(1)' }}
+                                        />
+                                    </Box>
+                                </AspectRatio>
+                                <Typography level="title-lg" sx={{ color: "white", fontWeight: 700 }}>
+                                    {member.name}
+                                </Typography>
+                                <Typography level="body-sm" sx={{ color: "primary.400", fontWeight: 700, textTransform: 'uppercase', mt: 0.5 }}>
+                                    {member.role}
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+
+            <Box component="section" sx={{
+                ...glassStyle,
+                p: { xs: 6, md: 10 },
+                textAlign: "center",
+                maxWidth: '1000px',
+                mx: 'auto',
+                width: '100%',
+                mb: 10
+            }}>
                 <Stack spacing={4} alignItems="center">
-                    <Typography level="h2" sx={{ color: 'white', fontWeight: 800 }}>
-                        ¿Listo para dar el siguiente paso?
+                    <Typography level="h2" component="h2" sx={{ color: 'white', fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+                        ¿Listo para dar el <br /> <Typography component="span" sx={{ color: 'primary.400' }}>siguiente paso?</Typography>
+                    </Typography>
+                    <Typography sx={{ color: 'white', fontSize: '1.2rem', opacity: 0.9 }}>
+                        Dejemos de adivinar y comencemos a ejecutar. Agenda una sesión de diagnóstico hoy mismo.
                     </Typography>
                     <Button
+                        component={Link}
+                        href="/contacto"
                         size="lg"
-                        variant="solid"
+                        endDecorator={<ArrowForwardIcon />}
                         sx={{
                             borderRadius: 'xl',
-                            px: 6, py: 2,
-                            fontSize: '1.1rem',
-                            background: 'linear-gradient(45deg, #7044ff, #B19DFF)',
-                            boxShadow: '0 10px 20px rgba(112,68,255,0.3)',
-                            '&:hover': { transform: 'translateY(-2px)', boxShadow: '0 15px 30px rgba(112,68,255,0.4)' }
+                            px: 6, py: 2.5,
+                            fontWeight: 700,
+                            bgcolor: 'primary.500',
+                            color: 'white',
+                            '&:hover': { bgcolor: 'primary.400' }
                         }}
                     >
                         Trabajemos juntos
                     </Button>
                 </Stack>
-            </Container>
-        </Box>
+            </Box>
+        </Container>
     );
 }

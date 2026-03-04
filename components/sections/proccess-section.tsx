@@ -87,11 +87,11 @@ export default function ProcessSection() {
                                         Agenda tu llamada hoy.
                                     </Typography>
                                 </Box>
-                                <Button size="lg" startDecorator={<ScheduleIcon/>} sx={styles.ctaButton}>
-                                    <Link href={"/contacto"}>
+                                <Link href={"/contacto"}>
+                                    <Button size="lg" startDecorator={<ScheduleIcon/>} sx={styles.ctaButton}>
                                         Agendar
-                                    </Link>
-                                </Button>
+                                    </Button>
+                                </Link>
                             </Box>
                         </Box>
                     </Grid>

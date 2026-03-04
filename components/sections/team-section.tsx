@@ -69,13 +69,12 @@ export default function TeamSection() {
                             multidisciplinario preparado para impulsar tu marca
                             con estrategia clara, procesos medibles y resultados reales.
                         </Typography>
+                        <Link href={"/sobre-nosotros"}>
+                            <Button size="lg" sx={styles.ctaButton}>
 
-                        <Button size="lg" sx={styles.ctaButton}>
-                            <Link href={"/sobre-nosotros"}>
                                 Saber Más
-                            </Link>
-                        </Button>
-
+                            </Button>
+                        </Link>
 
                     </Box>
                 </Grid>

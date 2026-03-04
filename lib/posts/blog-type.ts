@@ -1,4 +1,4 @@
-export type Author = {
+export type Profile = {
     name: string;
     last_name: string;
     avatar_url: string;
@@ -11,7 +11,7 @@ export type BlogPost = {
     image_url: string;
     category: string;
     published: boolean;
-    authors: Author;
+    profiles: Profile;
     createdAt?: string;
     slug?: string;
 }
@@ -29,7 +29,7 @@ export type sinlgePost = {
     image_url: string;
     category: string;
     published: boolean;
-    authors: Author;
+    authors: Profile;
     createdAt?: string;
     updatedAt?: string;
 }

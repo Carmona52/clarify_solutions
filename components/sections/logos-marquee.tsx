@@ -28,7 +28,7 @@ export default function MarqueeLogos() {
     const doubleCompanies = [...marketingCompanies, ...marketingCompanies];
 
     return (
-        <Box sx={{p: 5, display: 'flex', flexDirection: 'column', justifyContent: "center", textAlign: 'center'}}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: "center", textAlign: 'center'}}>
             <Typography level="h2" sx={styles.title} className="timeline-view animate-zoom-in animate-range-[entry_0%_cover_30%]">
                 Trabajamos con las mejores herramientas del mercado
             </Typography>

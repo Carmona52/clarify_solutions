@@ -55,9 +55,9 @@ export default function BlogCard({post}: { post: BlogPost }) {
 
                 <Box sx={{display: "flex", gap: 1.5, alignItems: "center"}}>
 
-                    <Avatar src={post.authors?.avatar_url} size="sm" variant="outlined"/>
+                    <Avatar src={post.profiles?.avatar_url} size="sm" variant="outlined"/>
                     <Typography level="body-xs" sx={{color: "white"}}>
-                        {post.authors?.name} {post.authors?.last_name}
+                        {post.profiles?.name} {post.profiles?.last_name}
                     </Typography>
 
                 </Box>

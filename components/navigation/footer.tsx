@@ -136,8 +136,8 @@ export default function Footer() {
                             Contacto
                         </Typography>
                         <Stack spacing={2}>
-                            <Typography level="body-sm"> <Phone/> +111 111 1111</Typography>
-                            <Typography level="body-sm"> <Mail/> clarify@gmail.com</Typography>
+                            <Typography level="body-sm"> <Phone/> 55 4901 7577</Typography>
+                            <Typography level="body-sm"> <Mail/> tania.mojica@Clarifysolutions.mx</Typography>
                             <Typography level="body-sm"> <LocationOn/> Zapopan, Jalisco</Typography>
                         </Stack>
                     </Grid>

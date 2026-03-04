@@ -11,7 +11,6 @@ export default function NavBar() {
     const pathName = usePathname();
     const [open, setOpen] = useState(false);
 
-
     const options = [
         {label: "Inicio", path: "/"},
         {label: "Blog", path: "/blog"},
@@ -19,19 +18,13 @@ export default function NavBar() {
         {label: "Sobre Nosotros", path: "/sobre-nosotros"}
     ];
 
+
     return (
         <Sheet sx={styles.navBar} component="nav">
             <Box sx={styles.logo}>
                 <Link href="/">
-                    <Image
-                        src="/Clarify_H1.png"
-                        alt="Logo Clarify"
-                        width={120}
-                        height={50}
-                        priority/>
+                    <Image src="/Clarify_H1.png" alt="Logo Clarify" width={120} height={50} priority/>
                 </Link>
-
-
             </Box>
 
             <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 3, alignItems: "center"}}>
@@ -39,13 +32,11 @@ export default function NavBar() {
                     {options.map((option, index) => {
                         const isActive = pathName === option.path;
                         return (
-                            <Sheet className="hover:animate-squeeze"
-                                   key={index}
-                                   sx={{
-                                       ...styles.menuOption,
-                                       backgroundColor: isActive ? 'primary.100' : 'transparent',
-                                       color: isActive ? 'primary.700' : 'text.primary',
-                                   }}>
+                            <Sheet key={index} sx={{
+                                ...styles.menuOption,
+                                backgroundColor: isActive ? 'primary.100' : 'transparent',
+                                color: isActive ? 'primary.700' : 'text.primary',
+                            }}>
                                 <Typography component={Link} href={option.path} sx={styles.linkText}>
                                     {option.label}
                                 </Typography>
@@ -53,9 +44,11 @@ export default function NavBar() {
                         );
                     })}
                 </Box>
-                <Button variant="solid" color="primary" size="lg">Contáctanos</Button>
-            </Box>
 
+                <Link href={'/contacto'}>
+                    <Button variant="solid" color="primary" size="lg">Contáctanos</Button>
+                </Link>
+            </Box>
 
             <Box sx={{display: {xs: 'flex', md: 'none'}, alignItems: 'center', gap: 1}}>
                 <IconButton variant="outlined" color="neutral" onClick={() => setOpen(true)}>
@@ -66,25 +59,25 @@ export default function NavBar() {
             <Drawer open={open} onClose={() => setOpen(false)} anchor="right">
                 <Box sx={{p: 2, display: 'flex', flexDirection: 'column', gap: 2}}>
                     <Box sx={styles.logo}>
-                        <Image src="/Clarify_H1.png" fill alt="Logo" style={{objectFit: 'contain'}}/>
+                        <Link href="/">
+                            <Image src="/Clarify_H1.png" alt="Logo Clarify" width={120} height={50} priority/>
+                        </Link>
                     </Box>
                     <List>
                         {options.map((option) => (
                             <ListItem key={option.path}>
-                                <ListItemButton
-                                    component={Link}
-                                    href={option.path}
-                                    onClick={() => setOpen(false)}
-                                    selected={pathName === option.path}
-                                    sx={{borderRadius: 'md'}}
-                                >
+                                <ListItemButton component={Link} href={option.path} onClick={() => setOpen(false)}>
                                     {option.label}
                                 </ListItemButton>
                             </ListItem>
                         ))}
+
                     </List>
-                    <Button fullWidth>Contáctanos</Button>
+                    <Link href={'/contacto'}>
+                        <Button variant="solid" color="primary" sx={{width: '100%'}}>Contáctanos</Button>
+                    </Link>
                 </Box>
+
             </Drawer>
         </Sheet>
     );
@@ -98,13 +91,10 @@ const styles = {
         p: 2,
         px: 5,
         borderRadius: "0px 0px 10px 10px",
-
         background: "white",
         backdropFilter: "blur(12px)",
         borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-
-        // --- LA CLAVE ---
         position: 'fixed',
         top: 0,
         left: 0,
@@ -117,7 +107,7 @@ const styles = {
         cursor: "pointer",
         position: "relative",
     },
-    menu: { display: 'flex', gap: 1 },
+    menu: {display: 'flex', gap: 1},
     menuOption: {
         p: 1,
         px: 2,

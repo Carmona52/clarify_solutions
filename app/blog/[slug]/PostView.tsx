@@ -7,7 +7,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 export default function PostView({post}: { post: Post }) {
-    const author = post.authors as any;
+    const author = post.profiles as any;
 
     const formattedDate = new Date(post.createdAt || '').toLocaleDateString('es-ES', {
         day: 'numeric',
@@ -30,7 +30,6 @@ export default function PostView({post}: { post: Post }) {
                 pointerEvents: 'none'
             }}/>
 
-            {/* --- SECCIÓN TITULAR (HERO) --- */}
             <Box sx={{pt: {xs: 8, md: 10}, pb: 4, position: 'relative', zIndex: 1}}>
                 <Container maxWidth="md">
                     <Stack spacing={3} alignItems="center" textAlign="center">
@@ -123,7 +122,6 @@ export default function PostView({post}: { post: Post }) {
                         </Box>
                     </Box>
 
-                    {/* Info Fecha y Lectura */}
                     <Stack direction="row" spacing={2} divider={<Divider orientation="vertical" />}>
                         <Typography level="body-xs" sx={{display: 'flex', alignItems: 'center', gap: 0.5, color: '#D6CFF9'}}>
                             <CalendarTodayIcon sx={{fontSize: 14}}/> {formattedDate}
@@ -135,8 +133,7 @@ export default function PostView({post}: { post: Post }) {
                 </Stack>
             </Container>
 
-            {/* --- CUERPO DEL ARTÍCULO --- */}
-            <Container maxWidth="sm" sx={{
+            <Container maxWidth="lg" sx={{
                 position: 'relative',
                 zIndex: 1,
                 '& p': { fontSize: '1.25rem', lineHeight: 1.8, mb: 4, color: '#D6CFF9' },
@@ -156,31 +153,7 @@ export default function PostView({post}: { post: Post }) {
             }}>
                 <Box dangerouslySetInnerHTML={{__html: post?.content ?? ""}}/>
 
-                <Box sx={{
-                    mt: 12,
-                    p: { xs: 4, md: 6 },
-                    borderRadius: '32px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    gap: 4,
-                    alignItems: 'center'
-                }}>
-                    <Avatar src={author?.avatar_url} sx={{ width: 100, height: 100, border: '3px solid rgba(112,68,255,0.3)' }} />
-                    <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-                        <Typography level="body-xs" sx={{ color: '#B19DFF', fontWeight: 700, textTransform: 'uppercase', mb: 1 }}>
-                            Escrito por
-                        </Typography>
-                        <Typography level="h4" sx={{ color: '#F1F0FB', mb: 1.5, fontSize: '1.6rem', fontWeight: 700 }}>
-                            {author?.name} {author?.last_name}
-                        </Typography>
-                        <Typography level="body-md" sx={{ color: '#D6CFF9', lineHeight: 1.6, opacity: 0.8 }}>
-                            {author?.bio || "Estratega digital especializado en tecnología y crecimiento de negocios."}
-                        </Typography>
-                    </Box>
-                </Box>
+
             </Container>
         </Box>
     )

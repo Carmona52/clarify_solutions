@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {Box, Typography, Button} from "@mui/joy";
+import Link from "next/link";
 
 export default function HeroSection() {
     return (
@@ -35,30 +36,33 @@ export default function HeroSection() {
                 </Typography>
 
                 <Box sx={styles.buttonGroup}>
-                    <Button size="lg" sx={styles.primaryButton}>
-                        ¡Háblanos de tu Proyecto!
-                    </Button>
+                    <Link href="/contacto">
+                        <Button size="lg" sx={styles.primaryButton}>
+                            ¡Háblanos de tu Proyecto!
+                        </Button>
+                    </Link>
 
-                    <Button size="lg" variant="outlined" sx={styles.secondaryButton}>
-                        Saber más
-                    </Button>
+                    <Link href="/servicios">
+                        <Button size="lg" variant="outlined" sx={styles.secondaryButton}>
+                            Saber más
+                        </Button>
+                    </Link>
+
                 </Box>
 
-                <Box sx={styles.statsContainer}>
-                    {[
-                        {value: "10K+", label: "Clientes satisfechos"},
-                        {value: "99%", label: "Tasa de satisfacción"},
-                        {value: "24/7", label: "Soporte disponible"},
-                    ].map((stat, i) => (
-                        <Box key={i}>
-                            <Typography level="h2" sx={{color: "white", fontWeight: 800}}>
-                                {stat.value}
-                            </Typography>
-                            <Typography level="body-sm" sx={{color: "rgba(255,255,255,0.8)"}}>
-                                {stat.label}
-                            </Typography>
-                        </Box>
-                    ))}
+                <Box sx={styles.statsContainer}>{[{value: "10+", label: "Clientes satisfechos"}, {
+                    value: "99%",
+                    label: "Tasa de satisfacción"
+                },].map((stat, i) => (
+                    <Box key={i}>
+                        <Typography level="h2" sx={{color: "white", fontWeight: 800}}>
+                            {stat.value}
+                        </Typography>
+                        <Typography level="body-sm" sx={{color: "rgba(255,255,255,0.8)"}}>
+                            {stat.label}
+                        </Typography>
+                    </Box>
+                ))}
                 </Box>
             </Box>
 
